@@ -1,13 +1,12 @@
 package com.thoughtworks.capability.gtb.entrancequiz.api;
 
-import com.thoughtworks.capability.gtb.entrancequiz.domain.User;
-import com.thoughtworks.capability.gtb.entrancequiz.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+        import com.thoughtworks.capability.gtb.entrancequiz.domain.User;
+        import com.thoughtworks.capability.gtb.entrancequiz.service.UserService;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.List;
+        import java.util.Arrays;
+        import java.util.List;
 
 
 @RestController
@@ -55,6 +54,16 @@ public class Controller {
 
     @GetMapping(path = "userList")
     public List<User> getUserList(){
+        return userList;
+    }
+
+    @GetMapping(path = "userRandomList")
+    public List<User> getUserRandomList(){
         return userService.randomUser(userList);
+    }
+
+    @PostMapping(path = "addUser")
+    public void addUser(@RequestBody String name){
+        userList.add(new User(userList.size()+1,name));
     }
 }
