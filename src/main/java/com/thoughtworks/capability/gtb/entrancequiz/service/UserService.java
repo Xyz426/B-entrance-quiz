@@ -13,6 +13,14 @@ public class UserService {
     public List<User> randomUser(List<User> userList){
         newUserList = new ArrayList<>(userList);
         Collections.shuffle(newUserList);
-        return newUserList;
+        return addGroup(newUserList);
+    }
+
+    public List<User> addGroup(List<User> userList){
+        for (int i = 0; i < userList.size(); i++) {
+            userList.get(i).setGroupId(i%6 + 1);
+        }
+
+        return userList;
     }
 }

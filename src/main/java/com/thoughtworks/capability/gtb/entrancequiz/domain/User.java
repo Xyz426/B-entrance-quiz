@@ -1,12 +1,21 @@
-package com.thoughtworks.capability.gtb.domain;
+package com.thoughtworks.capability.gtb.entrancequiz.domain;
 
 public class User {
     Integer id;
+    Integer groupId;
     String userName;
 
     public User(Integer id, String userName) {
         this.id = id;
         this.userName = userName;
+    }
+
+    public Integer getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(Integer groupId) {
+        this.groupId = groupId;
     }
 
     public Integer getId() {

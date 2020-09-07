@@ -10,6 +10,7 @@ package com.thoughtworks.capability.gtb.entrancequiz.api;
 
 
 @RestController
+@CrossOrigin
 public class Controller {
     @Autowired
     UserService userService;
